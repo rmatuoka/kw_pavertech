@@ -1,4 +1,4 @@
-KwAdministrador::Application.routes.draw do
+KwPavertech::Application.routes.draw do
 
   resources :user_sessions
   resources :users
