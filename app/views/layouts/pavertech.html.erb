@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><%= content_for?(:title) ? "Pavertech - " + yield(:title) : "Pavertech" %></title>
+<%=stylesheet_link_tag "template"%>
+<%=stylesheet_link_tag "sliderbg"%>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<%=javascript_include_tag "sliderbgscript"%>
+<%=javascript_include_tag "jquery.parallax-1.1.3"%>
+<%=javascript_include_tag "jquery.localscroll-1.2.7-min"%>
+<%=javascript_include_tag "jquery.scrollTo-1.4.2-min"%>
+<link href="http://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+$(document).ready(function(){
+        
+        $( '.itens-menu a' ).click(function(){
+                $( '.itens-menu a' ).removeClass( active );
+                $( this ).addClass('active');
+        });     
+        
+        //$('#nav').localScroll();
+        $('.itens-menu').localScroll();
+        //.parallax(xPosition, speedFactor, outerHeight) options:
+        //xPosition - Horizontal position of the element
+        //inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
+        //outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
+
+        
+        var nav = $('.navigation_container');
+        $(window).scroll(function () { 
+                if ($(this).scrollTop() > 800) { 
+                $(".navigation_container").fadeIn("fast");
+                        nav.addClass("navigation_bg");
+                        
+                         } 
+                else { 
+                $(".navigation_container").fadeOut("fast");
+                        nav.removeClass("navigation_bg"); 
+                } });                   
+
+})
+</script>
+<%=yield :head%>
+</head>
+<body>
+<%=yield%>
+<%=render :file => "layouts/_public_footer.html.erb"%>
+</body>
+</html>

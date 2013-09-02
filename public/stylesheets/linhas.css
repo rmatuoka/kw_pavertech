@@ -1,0 +1,135 @@
+
+
+@charset "utf-8";
+/* CSS Document */
+#linhas #linhas_bt{
+	color:#d6792c;
+}
+
+
+#intro{
+	background: url(../images/bg_home.jpg);
+}
+.sec_text_field_1{
+	position: absolute;
+	left: 6px;
+	top: 81px;
+}
+	.text_1_second_1{
+		font-family: 'Montserrat Alternates', sans-serif;
+		font-size:25px;
+		font-weight:bold;
+		color:#a52e32;
+		width:330px;
+	}
+	.text_2_second_1{
+		font-family: 'Montserrat Alternates', sans-serif;
+		font-size:20px;
+		font-weight:normal;
+		color:#3c3b3b;
+		width:642px;
+		margin-left:37px;
+	}
+	
+	
+	.text_paragraph{
+		position: absolute;
+		left: 6px;
+		top: 325px;
+		opacity:0.8;
+		font-family: 'Montserrat Alternates', sans-serif;
+		font-size:15px;
+		font-weight:normal;
+		color:#3c3b3b;
+		width:704px;		
+	}
+.mascote_empresa_align{
+	position: absolute;
+	top: 126px;
+	left: 717px;
+}	
+.div_mascote_linhas{
+	position:absolute;
+	margin:0 auto;
+	top:302px;
+	width:940px;
+	height:539px;
+	background-image:url(../images/mascote_bg.png);
+	background-position:top center;
+	background-repeat:no-repeat;	
+}
+.img_align_linhas{
+	margin-top:8px;
+}
+.div_mascote_linhas a{
+	text-decoration:none;
+}
+.div_mascote_linhas a:hover{
+	text-decoration:none;
+}
+.info_text{
+	display:none;
+	position: absolute;
+	left: 141px;
+	bottom: 8px;
+}
+.div_mascote_linhas a:hover .info_text{
+	display:block;
+	font-family: 'Montserrat Alternates', sans-serif;
+	font-size:15px;
+	font-weight:normal;
+	color:#3d7d24;		
+}
+.div_mascote_linhas a:hover .info_text_2{
+	display:block;
+	font-family: 'Montserrat Alternates', sans-serif;
+	font-size:15px;
+	font-weight:normal;
+	color:#3d7d24;		
+}
+.item_left_top{
+	position: absolute;
+	top: -59px;
+	left: 40px;
+	width: 262px;
+	height: 145px;
+}
+.text_item{
+	position:relative;
+	top:0px;
+	height:20px;
+	font-family: 'Montserrat Alternates', sans-serif;
+	font-size:15px;
+	font-weight:normal;
+	color:#6f6867;	
+}
+.item_left_bottom{
+	position: absolute;
+	top: 239px;
+	left: 0px;
+	width: 262px;
+	height: 145px;
+}
+.item_right_top{
+	position: absolute;
+	top: -59px;
+	left: 720px;
+	width: 262px;
+	height: 145px;
+}
+	.text_item_2{
+		position:relative;
+		top:0px;	
+		height:20px;
+		font-family: 'Montserrat Alternates', sans-serif;
+		font-size:15px;
+		font-weight:normal;
+		color:#6f6867;
+		margin-left:10px;	
+	}
+	.info_text_2{
+		display:none;
+		position: absolute;
+		left: -102px;
+		bottom: 8px;
+	}

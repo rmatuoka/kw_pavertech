@@ -1,0 +1,49 @@
+
+
+@charset "utf-8";
+/* CSS Document */
+
+#empresa #empresa_bt{
+	color:#d6792c;
+}
+#intro{
+	background: url(../images/bg_empresa.jpg) top center no-repeat;
+}
+.sec_text_field_1{
+	position: absolute;
+	left: 6px;
+	top: 81px;
+}
+	.text_1_second_1{
+		font-family: 'Montserrat Alternates', sans-serif;
+		font-size:25px;
+		font-weight:bold;
+		color:#a52e32;
+		width:330px;
+	}
+	.text_2_second_1{
+		font-family: 'Montserrat Alternates', sans-serif;
+		font-size:20px;
+		font-weight:normal;
+		color:#3c3b3b;
+		width:642px;
+		margin-left:37px;
+	}
+	
+	
+	.text_paragraph{
+		position: absolute;
+		left: 6px;
+		top: 325px;
+		opacity:0.8;
+		font-family: 'Montserrat Alternates', sans-serif;
+		font-size:15px;
+		font-weight:normal;
+		color:#3c3b3b;
+		width:704px;		
+	}
+.mascote_empresa_align{
+	position: absolute;
+	top: 126px;
+	left: 717px;
+}	

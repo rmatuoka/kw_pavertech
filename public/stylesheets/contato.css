@@ -1,0 +1,134 @@
+
+
+@charset "utf-8";
+/* CSS Document */
+#contato #contato_bt{
+	color:#d6792c;
+}
+
+#intro{
+	background: url(../images/bg_home.jpg);
+	height:1100px;
+}
+.sec_text_field_1{
+	position: absolute;
+	left: 0px;
+	top: 81px;
+}
+	.text_1_second_1{
+		font-family: 'Montserrat Alternates', sans-serif;
+		font-size:25px;
+		font-weight:bold;
+		color:#a52e32;
+		width:330px;
+	}
+	.text_2_second_1{
+		font-family: 'Montserrat Alternates', sans-serif;
+		font-size:20px;
+		font-weight:normal;
+		color:#3c3b3b;
+		width:898px;
+		margin-left:25px;
+	}
+	
+	
+	.text_paragraph{
+		position: absolute;
+		left: 6px;
+		top: 325px;
+		opacity:0.8;
+		font-family: 'Montserrat Alternates', sans-serif;
+		font-size:15px;
+		font-weight:normal;
+		color:#3c3b3b;
+		width:704px;		
+	}
+.mascote_empresa_align{
+	position: absolute;
+	top: 126px;
+	left: 717px;
+}	
+.div_mascote_linhas{
+	position:absolute;
+	margin:0 auto;
+	top:302px;
+	width:940px;
+	height:539px;
+	background-image:url(../images/mascote_bg.png);
+	background-position:top center;
+	background-repeat:no-repeat;	
+}
+.contato_box{
+	position: absolute;
+	top: 260px;
+	width:852px;
+	margin:0 auto;
+}
+.contato_left{
+	position:relative;
+	z-index: 3000;
+	float:left;
+	width:436px;
+}
+.contato_right{
+	position: relative;
+	z-index: 2000;
+	float: left;
+	width: 416px;
+	height: 627px;
+	background-image:url(../images/mascot_contato.png);
+	background-repeat:no-repeat;
+	background-position:left top;
+}
+form{
+	width:452px;
+	}
+.error{
+	position:relative;
+	font-family: 'Montserrat Alternates', sans-serif;
+	font-size:10px;
+	font-weight:normal;
+	color:#a52e32;	
+
+}	
+
+.input{
+	font-family: 'Montserrat Alternates', sans-serif;
+	font-size:20px;
+	color:#cccccc;
+	background-color:#f4f4f4;
+	width:428px;
+	height:20px;
+	padding:10px;
+	border:#FFF 1px solid;
+	margin-bottom:16px;
+	}
+.input:focus {color:#5a5a5a;}
+.textarea{
+	font-family: 'Montserrat Alternates', sans-serif;
+	font-size:20px;
+	color:#cccccc;
+	background-color:#f4f4f4;
+	width:428px;
+	height:231px;
+	resize:none;
+	padding:10px;
+	border:#FFF 1px solid;
+	margin-bottom:10px;
+	}
+.textarea:focus{color:#5a5a5a;}
+.select {
+	font-family: 'Montserrat Alternates', sans-serif;
+	font-size: 20px;
+	color: #cccccc;
+	background-color: #f4f4f4;
+	width: 202px;
+	padding: 8px;
+	border: #FFF 1px solid;
+	margin-bottom: 16px;
+}
+.select:focus{color:#5a5a5a;}
+.btn{
+	width:155px;
+	margin:0 !important;
+	}

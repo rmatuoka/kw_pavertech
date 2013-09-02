@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><%= content_for?(:title) ? "Pavertech -" + yield(:title) : "Pavertech" %></title>
+<%=stylesheet_link_tag "internal"%>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<%=javascript_include_tag "jquery.localscroll-1.2.7-min"%>
+<%=javascript_include_tag "jquery.scrollTo-1.4.2-min"%>
+<%=javascript_include_tag "page.title"%>
+<link href="http://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+$(document).ready(function(){
+                        
+
+})
+</script>
+<%=yield :head%>
+</head>
+<body id="">
+<%=render :file => "layouts/_public_internal_menu.html.erb"%>
+<%=yield%>
+<%=render :file => "layouts/_public_internal_footer.html.erb"%>
+</body>
+</html>
