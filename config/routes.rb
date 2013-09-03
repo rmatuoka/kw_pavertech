@@ -1,5 +1,9 @@
 KwPavertech::Application.routes.draw do
 
+  resources :quotations
+
+  resources :contacts
+
   get "special_catalog/index"
 
   get "bloc_catalog/index"

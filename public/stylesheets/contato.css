@@ -117,7 +117,7 @@ form{
 	margin-bottom:10px;
 	}
 .textarea:focus{color:#5a5a5a;}
-.select {
+#contact_state{
 	font-family: 'Montserrat Alternates', sans-serif;
 	font-size: 20px;
 	color: #cccccc;

@@ -1,0 +1,23 @@
+one:
+  corp: MyString
+  branch: MyString
+  cnpj: MyString
+  address: MyString
+  hood: MyString
+  city: MyString
+  state: MyString
+  phone: MyString
+  email: MyString
+  message: MyText
+
+two:
+  corp: MyString
+  branch: MyString
+  cnpj: MyString
+  address: MyString
+  hood: MyString
+  city: MyString
+  state: MyString
+  phone: MyString
+  email: MyString
+  message: MyText
