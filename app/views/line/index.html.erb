@@ -1,36 +1,38 @@
-<%content_for :title do "Catálogos" end %>
+<%content_for :title do "Linhas" end %>
 <%content_for :head do%>
-<%=stylesheet_link_tag "catalogos"%>
+<%=stylesheet_link_tag "linhas"%>
 <%end%>
 <div class="intro_content">
             <div class="sec_text_field_1">
-                <span class="text_1_second_1">Conheça nossos catálogos</span><br><br>
+                <span class="text_1_second_1">Conheça nossas linhas</span><br><br>
                 <p class="text_2_second_1">
-                   Para visualizar as especificações técnicas de nossos produtos selecione as opções abaixo. 
+                   Clique nos ícones abaixo para conhecer todas as nossas linhas 
                 </p>
+            
             </div>          
         <div class="div_mascote_linhas">
               <div class="item_left_top">
-              <%=link_to(url_for(:controller => 'pave_catalog', :action => 'index')) do %>
+              <%=link_to(url_for(:controller => 'pave_line', :action => 'index')) do %>
                     <span class="text_item">Pisos de Concreto</span>
                     <%=image_tag("img_pisodeconcreto.png", :width => "142", :height => "113", :class => "img_align_linhas")%>
                     <span class="info_text">Informações</span>
-               <%end%>   
+                <%end%>    
               </div>
               <div class="item_left_bottom">
-              <%=link_to(url_for(:controller => 'special_catalog', :action => 'index')) do %>
+                <%=link_to(url_for(:controller => 'special_line', :action => 'index')) do %>
                     <span class="text_item">Produtos Especiais</span>
                     <%=image_tag("img_produtosespeciais.png", :width => "142", :height => "113", :class => "img_align_linhas")%>
                     <span class="info_text">Informações</span>
-               <%end%>    
+                <%end%>    
               </div> 
               <div class="item_right_top">
-              <%=link_to(url_for(:controller=>'bloc_catalog', :action=>'index')) do %>
+                <%=link_to(url_for(:controller => 'bloc_line', :action => 'index')) do %>
                     <span class="text_item_2">Blocos de Concreto</span>
                     <%=image_tag("img_blocosdeconcreto.png", :width => "142", :height => "113", :class => "img_align_linhas")%>
                     <span class="info_text_2">Informações</span>
-                <%end%>
+                <%end%>    
               </div>                            
         </div>
         </div>
+        <!--#intro_content-->
         </div>

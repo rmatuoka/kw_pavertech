@@ -1,5 +1,19 @@
 KwPavertech::Application.routes.draw do
 
+  get "special_catalog/index"
+
+  get "bloc_catalog/index"
+
+  get "pave_catalog/index"
+
+  get "special_line/index"
+
+  get "bloc_line/index"
+
+  get "pave_line/index"
+
+  get "line/index"
+
   get "catalog/index"
 
   get "about/index"
