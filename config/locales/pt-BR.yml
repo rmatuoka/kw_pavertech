@@ -152,7 +152,17 @@
       create: 'Criar %{model}'
       update: 'Atualizar %{model}'
       submit: 'Salvar %{model}'
-
+# Campos que são comuns para todas as tabelas e atributos de form  
+  attributes: &active_model_default
+    created_at: "Data de criação"
+    updated_at: "Data de atualização" 
+    name: "Nome"
+    email: "Email"
+    phone: "Telefone" 
+    city: "Cidade"
+    state: "Estado"
+    corp: "Empresa"
+    message: "Mensagem"
   errors:
     format: "%{attribute} %{message}"
 
@@ -184,6 +194,12 @@
       even: "deve ser par"
 
   activerecord:
+    models:
+        contact: Contato
+    attributes:
+        contact:
+          <<: *active_model_default 
+          
     errors:
       template:
         header:
@@ -196,8 +212,8 @@
         record_invalid: "A validação falhou: %{errors}"
         <<: *errors_messages
 
-      full_messages:
-        format: "%{attribute} %{message}"
+    full_messages:
+      format: "%{attribute} %{message}"
         
         
     authlogic:

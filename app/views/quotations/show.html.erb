@@ -1,45 +1,25 @@
-<% title "Quotation" %>
-
-<p>
-  <strong>Corp:</strong>
-  <%= @quotation.corp %>
-</p>
-<p>
-  <strong>Branch:</strong>
-  <%= @quotation.branch %>
-</p>
-<p>
-  <strong>Cnpj:</strong>
-  <%= @quotation.cnpj %>
-</p>
-<p>
-  <strong>Address:</strong>
-  <%= @quotation.address %>
-</p>
-<p>
-  <strong>Hood:</strong>
-  <%= @quotation.hood %>
-</p>
-<p>
-  <strong>City:</strong>
-  <%= @quotation.city %>
-</p>
-<p>
-  <strong>State:</strong>
-  <%= @quotation.state %>
-</p>
-<p>
-  <strong>Phone:</strong>
-  <%= @quotation.phone %>
-</p>
-<p>
-  <strong>Email:</strong>
-  <%= @quotation.email %>
-</p>
-<p>
-  <strong>Message:</strong>
-  <%= @quotation.message %>
-</p>
-
-<p>
-</p>
+<%content_for :title do "Contato" end %>
+<%content_for :head do%>
+<%=stylesheet_link_tag "contato"%>
+<%=javascript_include_tag "jquery.validate.min"%>
+<%=javascript_include_tag "meusmetodos"%>
+<%=javascript_include_tag "jquery.meio.mask"%>
+<%end%>
+<div class="intro_content">
+            <div class="sec_text_field_1">
+                <span class="text_1_second_1">Obrigado por entrar em contato</span><br><br>
+                <p class="text_2_second_1">
+                   Ficamos agradecidos por seu interesse! 
+                </p>
+            
+            </div>          
+        <div class="contato_box">
+                    <div class="contato_left">
+                    <div style="width:300px;">&nbsp;</div>
+            </div>
+            <div class="contato_right">
+                
+            </div>                         
+        </div>
+        </div>
+        </div>

@@ -4,9 +4,9 @@
             <ul class="itens-menu navigation">            
                 <li><%=link_to "Empresa", about_index_path, :id => "empresa_bt", :title => "Next Section"%></li>
                 <li><%=link_to "Linhas", catalog_index_path, :id => "linhas_bt", :title => "Next Section"%></li>
-                <li><%=link_to "Cotação Online", catalog_index_path, :id => "cotacao_bt", :title => "Next Section"%></li>
+                <li><%=link_to "Cotação Online", new_quotation_path, :id => "cotacao_bt", :title => "Next Section"%></li>
                 <li><%=link_to "Catálogos", catalog_index_path, :id => "catalogos_bt", :title => "Next Section"%></li>
-                <li><%=link_to "Contato", catalog_index_path, :id => "contato_bt", :title => "Next Section"%></li>
+                <li><%=link_to "Contato", new_contact_path, :id => "contato_bt", :title => "Next Section"%></li>
             </ul>
             <%=image_tag("detail_top_left_slide1.png", :width => "370", :height => "487", :class => "detail_intro_left")%>          
         </div>        

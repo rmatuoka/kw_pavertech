@@ -1,215 +1,117 @@
 <%content_for :title do "Cotação" end %>
 <%content_for :head do%>
-<%=stylesheet_link_tag "cotacao"%>
-<%=javascript_include_tag "jquery.validate.min"%>
-<%=javascript_include_tag "meusmetodos"%>
-<%=javascript_include_tag "jquery.meio.mask"%>
-<script>
-/* Mascaras personalizadas */ 
+	<%=stylesheet_link_tag "cotacao"%>
+	<%=javascript_include_tag "jquery.validate.min"%>
+	<%=javascript_include_tag "meusmetodos"%>
+	<%=javascript_include_tag "jquery.meio.mask"%>
+	<script>
+	/* Mascaras personalizadas */ 
+		$.mask.masks = $.extend($.mask.masks,{
+			telefone_sp:{ mask: '(99) 99999-9999'},
+			cnpj:{ mask: '99.999.999/9999-99'},
+		});
+		(function($){
+			$(function(){
+				$('input:text').setMask();
+				/* Personalização para celulares de SP*/
+				$('#quotation_phone').keydown(function(event) {
+					// Act on the event
+					if($(this).val().substring(1,6) == '11) 9'){
+						$(this).attr('alt','telefone_sp');
+					}else{
+	 					$(this).attr('alt','phone');
+					}
+					$(this).setMask();
+				});
 
-$.mask.masks = $.extend($.mask.masks,{
-    telefone_sp:{ mask: '(99) 99999-9999'},
-        cnpj:{ mask: '99.999.999/9999-99'},
+			});
+		})($);
 
-
-});
-        (function($){
-
-                $(function(){
-
-                        $('input:text').setMask();
-
-                        /* Personalização para celulares de SP*/
-
-                        $('#telefone').keydown(function(event) {
-
-                                // Act on the event
-
-                                if($(this).val().substring(1,6) == '11) 9'){
-
-                                        $(this).attr('alt','telefone_sp');
-
-                                }else{
-
-                                        $(this).attr('alt','phone');
-
-                                }
-
-                                $(this).setMask();
-
-                        });
-
-                });
-
-        })($);
-
-(function($){
-                $(function(){
-        $(".pavertech_name").bind('keyup blur', function(e){
-            e.preventDefault();
-             
-            if(this.value.match(/[0-9]/g))
-            {
-                this.value = this.value.replace(/[0-9]/g,'');
-            }
-                        });
-                });
-$(function(){
-
-    $('input:text').setMask();
-        $('#nome').setMask('nome-pavertech');
-        $('#ddd').setMask('ddd');
-        $('#telefone').setMask('telefone');
-        $('input[type="text"]').setMask();
-    /* Personalização para celulares de SP*/
-
-    $('#contact_phone,#contact_cellphone').keydown(function(event) {
-
-    // Act on the event
-
-    if($(this).val().substring(1,6) == '11) 9'){
-
-        $(this).attr('alt','phone_sp');
-
-    }else{
-
-        $(this).attr('alt','phone');
-
-    }
-
-        $(this).setMask();
-
-    });
-
-});
-
-})($);   
-$('#cnpj').setMask("cnpj");
-                $(document).ready(function(){           
-        $('#new_quotation').validate({
-        rules: {
-            "quotation[name]": {
-                required: true,
-                minlength: 2
-            },
-                        "quotation[corp]": {
-                required: true,
-                minlength: 2
-            },
-                        "quotation[email]": {
-                required: true,
-                email: true
-            },
-                "quotation[phone]": {
-                required: true,
-            },
-                "quotation[cnpj]": {
-                required: true,
-                                cnpj:true,
-            },
-                "quotation[rg]": {
-                required: true,
-            },
-                "quotation[city]": {
-            },
-                "quotation[state]": {
-                required: true,
-            },                  
-                        "quotation[password]":{
-                                required:true,
-                                minlength: 6
-                        },                      
-                        "quotation[password_confirmation]": {
-                required: true,
-                minlength: 6,
-                                equalTo: "#contact_password"
-            },
-                        "quotation[message_confirmation]": {
-                required: true,
-                minlength: 6,
-            }
-                                                
-                        
-        },
-        messages: {
-            "quotation[name]":{
-                                required: "Preencha o Nome da Empresa",
-                                minlength:      "Mínimo de 2 caracteres"
-                        },
-            "quotation[corp]":{
-                                required: "Preencha com o a Area de Atuação de sua Empresa",
-                                minlength:      "Mínimo de 2 caracteres"
-                        },                      
-                        "quotation[city]":{
-                                required: "Preencha a sua cidade",
-                                minlength:      "Mínimo de 2 caracteres"
-                        },
-                        "quotation[email]":{
-                                required: "Preencha o seu email",
-                                email: "Informe um email válido"        
-                        },
-                        "quotation[password]":{
-                                required: "Preencha com uma senha",
-                                minlength: "Mínimo de 6 caracteres"     
-                        },
-                        "quotation[password_confirmation]":{
-                                required: "Preencha com a confirmação",
-                                minlength: "Mínimo de 6 caracteres",
-                                equalTo: "Confirmação não é igual a senha"      
-                        },
-                        "quotation[message]":{
-                                required: "Preencha com a confirmação",
-                                minlength: "Escreva uma mensagem",
-                        }                       
-        }
-    });
-    
-                        
-                //placeholder crossbrowser
-                $('.input[placeholder]').each(function(){
-                var ph = $(this).attr('placeholder')
-                $(this).val(ph).focus(function(){
-                if($(this).val() == ph) $(this).val('')
-                }).blur(function(){
-                if(!$(this).val()) $(this).val(ph)
-                })
-                })      
-});
-</script>
+		(function($){
+			$(function(){
+				$(".pavertech_name").bind('keyup blur', function(e){
+					e.preventDefault();
+					if(this.value.match(/[0-9]/g)){
+						this.value = this.value.replace(/[0-9]/g,'');
+					}
+				});
+			});
+			$(function(){
+				$('input:text').setMask();
+			/*	$('#nome').setMask('nome-pavertech');
+				$('#ddd').setMask('ddd');
+				$('#telefone').setMask('telefone');*/
+				$('input[type="text"]').setMask();
+			});
+		})($);   
+		$(document).ready(function(){       
+			$('#quotation_cnpj').setMask("cnpj");    
+			$('#new_quotation').validate({
+				rules: {
+					"quotation[corp]"	: {required: true,minlength: 2,placeholder: true},						
+					"quotation[branch]"	: {required: true,minlength: 2,placeholder: true},
+					"quotation[cnpj]"	: {required: true,minlength: 18,placeholder: true},	
+					"quotation[address]"	: {required: true,minlength: 2,placeholder: true},	
+					"quotation[hood]"	: {required: true,minlength: 2,placeholder: true},											
+					"quotation[city]"	: {required: true,placeholder: true},
+					"quotation[state]": {required: true,placeholder: true},  																		
+					"quotation[phone]": {required: true,placeholder: true},
+					"quotation[email]": {required: true,email: true,placeholder: true},	
+ 					"quotation[message]": {required: true,minlength: 6,placeholder: true}
+				},
+				messages: {
+					"quotation[corp]":{required: "Preencha o nome da sua Empresa",placeholder: "Preencha o nome da sua Empresa",minlength: "Mínimo de 2 caracteres"}, 					
+					"quotation[branch]":{required: "Preencha o seu ramo de atuação", placeholder: "Preencha o seu ramo de atuação",minlength:"Mínimo de 2 caracteres"},
+					"quotation[cnpj]":{required: "Preencha o seu CNPJ", placeholder: "Preencha o seu CNPJ",minlength:"Informe um CNPJ válido"},	
+					"quotation[address]":{required: "Preencha o seu endereço",placeholder: "Preencha o seu endereço",minlength: "Mínimo de 2 caracteres"}, 
+					"quotation[hood]":{required: "Preencha o seu bairro",placeholder: "Preencha o seu bairro",minlength: "Mínimo de 2 caracteres"}, 										
+					"quotation[city]":{required: "Preencha a sua cidade",placeholder: "Preencha a sua cidade",minlength:"Mínimo de 2 caracteres"},
+					"quotation[state]":{required: "Preencha o seu estado",placeholder: "Preencha o seu estado",minlength:"Mínimo de 2 caracteres"},	
+					"quotation[phone]":{required: "Preencha o seu telefone",placeholder: "Preencha o seu telefone"},																		
+					"quotation[email]":{required: "Preencha o seu email",placeholder: "Preencha o seu email",email: "Informe um email válido"},					
+					"quotation[message]":{required: "Preencha a sua mensagem",placeholder: "Preencha a sua mensagem",minlength: "Preencha a sua mensagem com quantidade minima de 6 caracteres"}		                     
+				}
+			});
+			//placeholder crossbrowser
+			$('.input[placeholder]').each(function(){
+				var ph = $(this).attr('placeholder')
+				$(this).val(ph).focus(function(){
+					if($(this).val() == ph) $(this).val('')
+				}).blur(function(){
+					if(!$(this).val()) $(this).val(ph)
+				})
+			})      
+		});
+	</script>
 <%end%>
-<div class="intro_content">
-            <div class="sec_text_field_1">
-                <span class="text_1_second_1">Entre em contato</span><br><br>
-                <p class="text_2_second_1">
-                   Você quer nos enviar dúvidas e sugestões? Preencha o formulário. Estamos aguardando seu contato. 
-                </p>
-            
-            </div>          
-        <div class="cotacao_box">
-                    <div class="cotacao_left">
-<%= form_for @quotation do |f| %>
-<%= f.error_messages %>
-<%= f.text_field :corp, :id => "nome", :type => "text", :placeholder => "Nome da Empresa", :value=> "", :class=> "input pavertech_name" %><br>
-<%= f.text_field :branch, :id =>"", :type =>"text", :placeholder =>"Ramo de Atuação", :value=>"", :class=>"input pavertech_name" %><br>
-<%= f.text_field :cnpj, :id =>"cnpj", :placeholder=>"CNPJ", :type=>"text", :value=>"", :class=>"input" %><br>
-<%= f.text_field :address, :id =>"endereco", :placeholder=>"Endereço", :type=>"text", :value=>"", :class=>"input" %><br>
-<%= f.text_field :hood, :placeholder=>"Bairro", :type=>"text", :value=>"", :class=>"input" %><br>
-<%= f.text_field :city, :type=>"text", :placeholder=>"Cidade", :value=>"Cidade", :class=>"input", :style=>"width:210px; margin-right:12px;" %>
-<%= f.select(:state, options_for_select([['Estado',''],['AC'],['AL'],['AP'],['AM'],['BA'],['CE'],['DF'],['ES'],['GO'],['MA'],['MT'],['MS'],['MG'],['PA'],['PB'],['PR'],['PE'],['PI'],['RJ'],['RN'],['RS'],['RO'],['RR'],['SC'],['SP'],['SE'],['TO']]), :value => "", :class => "select")%><br />
-<br>
-<%= f.text_field :phone, :id=>"telefone", :type=>"text", :placeholder=>"(DDD) Telefone", :value=>"", :class=>"input" %><br>
-<%= f.text_field :email, :type=>"text", :placeholder=>"E-mail", :value=>"", :class=>"input" %><br>
+	<div class="intro_content">
+		<div class="sec_text_field_1">
+			<span class="text_1_second_1">Entre em contato</span><br><br>
+			<p class="text_2_second_1">Você deseja um solicitar uma cotação? Preencha o formulário. Estamos aguardando seu contato. </p>
+		</div>          
+		<div class="cotacao_box">
+			<%= form_for @quotation do |f| %>		
+				<div class="cotacao_left">
+					<%#= f.error_messages %>
+					<%= f.text_field :corp, :type => "text", :placeholder => "Nome da Empresa", :class=> "input pavertech_name" %><br>
+					<%= f.text_field :branch, :type =>"text", :placeholder =>"Ramo de Atuação", :class=>"input pavertech_name" %><br>
+					<%= f.text_field :cnpj, :placeholder=>"CNPJ", :type=>"text", :class=>"input" %><br>
+					<%= f.text_field :address, :placeholder=>"Endereço", :type=>"text", :class=>"input" %><br>
+					<%= f.text_field :hood, :placeholder=>"Bairro", :type=>"text", :class=>"input" %><br>
+					<%= f.text_field :city, :type=>"text", :placeholder=>"Cidade", :class=>"input", :style=>"width:210px; margin-right:12px;" %>
+					<%= f.select(:state, options_for_select([['Estado',''],['AC'],['AL'],['AP'],['AM'],['BA'],['CE'],['DF'],['ES'],['GO'],['MA'],['MT'],['MS'],['MG'],['PA'],['PB'],['PR'],['PE'],['PI'],['RJ'],['RN'],['RS'],['RO'],['RR'],['SC'],['SP'],['SE'],['TO']], :selected => @quotation.state),  :class => "select")%><br />
+					<%= f.text_field :phone, :type=>"text", :placeholder=>"(DDD) Telefone", :class=>"input" %><br>
+					<%= f.text_field :email, :type=>"text", :placeholder=>"E-mail", :class=>"input" %><br>
+				</div>
+				<div class="cotacao_right">
+					<%= f.text_area :message, :placeholder=>"Produtos a Cotar", :class=>"input textarea" %><br>
+					<%= image_submit_tag("btn_enviar.png", :id => "user_submit", :name => "commit", :class => "btn float-right")%>
+				</div>  
+			<% end %>			
+		</div>
+	</div>
+	<!--#intro_content-->
 </div>
-<div class="cotacao_right">
-<%= f.text_area :message, :placeholder=>"Produtos a Cotar", :value=>"", :class=>"input textarea" %><br>
-<%= image_submit_tag("btn_enviar.png", :id => "user_submit", :name => "commit", :class => "btn float-right")%>
-<% end %>
-</div>
-                                         
-        </div>
-        </div>
-        <!--#intro_content-->
-        </div>
 
 
 

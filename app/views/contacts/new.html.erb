@@ -1,209 +1,107 @@
 <%content_for :title do "Contato" end %>
 <%content_for :head do%>
-<%=stylesheet_link_tag "contato"%>
-<%=javascript_include_tag "jquery.validate.min"%>
-<%=javascript_include_tag "meusmetodos"%>
-<%=javascript_include_tag "jquery.meio.mask"%>
-<script>
-/* Mascaras personalizadas */ 
+	<%=stylesheet_link_tag "contato"%>
+	<%=javascript_include_tag "jquery.validate.min"%>
+	<%=javascript_include_tag "meusmetodos"%>
+	<%=javascript_include_tag "jquery.meio.mask"%>
+	<script>
+	/* Mascaras personalizadas */ 
+		$.mask.masks = $.extend($.mask.masks,{
+			telefone_sp:{ mask: '(99) 99999-9999'},
+			cnpj:{ mask: '99.999.999/9999-99'},
+		});
+		(function($){
+			$(function(){
+				$('input:text').setMask();
+				/* Personalização para celulares de SP*/
+				$('#telefone').keydown(function(event) {
+					// Act on the event
+					if($(this).val().substring(1,6) == '11) 9'){
+						$(this).attr('alt','telefone_sp');
+					}else{
+	 					$(this).attr('alt','phone');
+					}
+					$(this).setMask();
+				});
 
-$.mask.masks = $.extend($.mask.masks,{
-    telefone_sp:{ mask: '(99) 99999-9999'},
-        cnpj:{ mask: '99.999.999/9999-99'},
+			});
+		})($);
 
-
-});
-        (function($){
-
-                $(function(){
-
-                        $('input:text').setMask();
-
-                        /* Personalização para celulares de SP*/
-
-                        $('#telefone').keydown(function(event) {
-
-                                // Act on the event
-
-                                if($(this).val().substring(1,6) == '11) 9'){
-
-                                        $(this).attr('alt','telefone_sp');
-
-                                }else{
-
-                                        $(this).attr('alt','phone');
-
-                                }
-
-                                $(this).setMask();
-
-                        });
-
-                });
-
-        })($);
-
-(function($){
-                $(function(){
-        $(".pavertech_name").bind('keyup blur', function(e){
-            e.preventDefault();
-             
-            if(this.value.match(/[0-9]/g))
-            {
-                this.value = this.value.replace(/[0-9]/g,'');
-            }
-                        });
-                });
-$(function(){
-
-    $('input:text').setMask();
-        $('#nome').setMask('nome-pavertech');
-        $('#ddd').setMask('ddd');
-        $('#telefone').setMask('telefone');
-        $('input[type="text"]').setMask();
-    /* Personalização para celulares de SP*/
-
-    $('#contact_phone,#contact_cellphone').keydown(function(event) {
-
-    // Act on the event
-
-    if($(this).val().substring(1,6) == '11) 9'){
-
-        $(this).attr('alt','phone_sp');
-
-    }else{
-
-        $(this).attr('alt','phone');
-
-    }
-
-        $(this).setMask();
-
-    });
-
-});
-
-})($);   
-$('#contact_cnpj').setMask("cnpj");
-                $(document).ready(function(){           
-        $('#new_contact').validate({
-        rules: {
-            "contact[name]": {
-                required: true,
-                minlength: 2
-            },
-                        "contact[corp]": {
-                required: true,
-                minlength: 2
-            },
-                        "contact[email]": {
-                required: true,
-                email: true
-            },
-                "contact[phone]": {
-                required: true,
-            },
-                "contact[cnpj]": {
-                required: true,
-                                cnpj:true,
-            },
-                "contact[rg]": {
-                required: true,
-            },
-                "contact[city]": {
-            },
-                "contact[state]": {
-                required: true,
-            },                  
-                        "contact[password]":{
-                                required:true,
-                                minlength: 6
-                        },                      
-                        "contact[password_confirmation]": {
-                required: true,
-                minlength: 6,
-                                equalTo: "#contact_password"
-            },
-                        "contact[message_confirmation]": {
-                required: true,
-                minlength: 6,
-            }
-                                                
-                        
-        },
-        messages: {
-            "contact[name]":{
-                                required: "Preencha o seu nome",
-                                minlength:      "Mínimo de 2 caracteres"
-                        },
-            "contact[corp]":{
-                                required: "Preencha com o nome da sua Empresa",
-                                minlength:      "Mínimo de 2 caracteres"
-                        },                      
-                        "contact[city]":{
-                                required: "Preencha a sua cidade",
-                                minlength:      "Mínimo de 2 caracteres"
-                        },
-                        "contact[email]":{
-                                required: "Preencha o seu email",
-                                email: "Informe um email válido"        
-                        },
-                        "contact[password]":{
-                                required: "Preencha com uma senha",
-                                minlength: "Mínimo de 6 caracteres"     
-                        },
-                        "contact[password_confirmation]":{
-                                required: "Preencha com a confirmação",
-                                minlength: "Mínimo de 6 caracteres",
-                                equalTo: "Confirmação não é igual a senha"      
-                        },
-                        "contact[message]":{
-                                required: "Preencha com a confirmação",
-                                minlength: "Escreva uma mensagem",
-                        }                       
-        }
-    });
-    
-                        
-                //placeholder crossbrowser
-                $('.input[placeholder]').each(function(){
-                var ph = $(this).attr('placeholder')
-                $(this).val(ph).focus(function(){
-                if($(this).val() == ph) $(this).val('')
-                }).blur(function(){
-                if(!$(this).val()) $(this).val(ph)
-                })
-                })      
-});
-</script>
+		(function($){
+			$(function(){
+				$(".pavertech_name").bind('keyup blur', function(e){
+					e.preventDefault();
+					if(this.value.match(/[0-9]/g)){
+						this.value = this.value.replace(/[0-9]/g,'');
+					}
+				});
+			});
+			$(function(){
+				$('input:text').setMask();
+				$('#nome').setMask('nome-pavertech');
+				$('#ddd').setMask('ddd');
+				$('#telefone').setMask('telefone');
+				$('input[type="text"]').setMask();
+			});
+		})($);   
+		$('#contact_cnpj').setMask("cnpj");
+		$(document).ready(function(){           
+			$('#new_contact').validate({
+				rules: {
+					"contact[name]"	: {required: true,minlength: 2,placeholder: true},
+					"contact[email]": {required: true,email: true,placeholder: true},					
+					"contact[phone]": {required: true,placeholder: true},
+					"contact[city]"	: {required: true,placeholder: true},
+					"contact[state]": {required: true,placeholder: true},     
+					"contact[corp]"	: {required: true,minlength: 2,placeholder: true},					             
+					"contact[message]": {required: true,minlength: 6,placeholder: true}
+				},
+				messages: {
+					"contact[name]":{required: "Preencha o seu nome", placeholder: "Preencha o seu nome",minlength:"Mínimo de 2 caracteres"},
+					"contact[email]":{required: "Preencha o seu email",placeholder: "Preencha o seu email",email: "Informe um email válido"},					
+					"contact[phone]":{required: "Preencha o seu telefone",placeholder: "Preencha o seu telefone"},
+					"contact[city]":{required: "Preencha a sua cidade",placeholder: "Preencha a sua cidade",minlength:"Mínimo de 2 caracteres"},
+					"contact[state]":{required: "Preencha o seu estado",placeholder: "Preencha o seu estado",minlength:"Mínimo de 2 caracteres"},
+					"contact[corp]":{required: "Preencha o nome da sua Empresa",placeholder: "Preencha o nome da sua Empresa",minlength: "Mínimo de 2 caracteres"}, 
+					"contact[message]":{required: "Preencha a sua mensagem",placeholder: "Preencha a sua mensagem",minlength: "Preencha a sua mensagem com quantidade minima de 6 caracteres"}		                     
+				}
+			});
+			//placeholder crossbrowser
+			$('.input[placeholder]').each(function(){
+				var ph = $(this).attr('placeholder')
+				$(this).val(ph).focus(function(){
+					if($(this).val() == ph) $(this).val('')
+				}).blur(function(){
+					if(!$(this).val()) $(this).val(ph)
+				})
+			})      
+		});
+	</script>
 <%end%>
-<div class="intro_content">
-            <div class="sec_text_field_1">
-                <span class="text_1_second_1">Entre em contato</span><br><br>
-                <p class="text_2_second_1">
-                   Você quer nos enviar dúvidas e sugestões? Preencha o formulário. Estamos aguardando seu contato. 
-                </p>
-            
-            </div>          
-        <div class="contato_box">
-                    <div class="contato_left">
-<%= form_for @contact do |f| %>
-<%= f.error_messages %>
-<%= f.text_field :name, :id => "", :type => "text", :placeholder => "Nome", :value => "", :class => "input pavertech_name" %><br />
-<%= f.text_field :email, :id => "", :type => "text", :placeholder => "E-mail", :value => "", :class => "input" %><br />
-<%= f.text_field :phone, :id => "telefone", :type => "text", :placeholder => "(DDD) Telefone", :value => "", :class => "input" %><br />
-<%= f.text_field :city, :id => "", :type => "text", :placeholder => "Cidade", :value => "", :class => "input pavertech_name", :style => "width:210px; margin-right:12px;" %>
-<%= f.select(:state, options_for_select([['Estado',''],['AC'],['AL'],['AP'],['AM'],['BA'],['CE'],['DF'],['ES'],['GO'],['MA'],['MT'],['MS'],['MG'],['PA'],['PB'],['PR'],['PE'],['PI'],['RJ'],['RN'],['RS'],['RO'],['RR'],['SC'],['SP'],['SE'],['TO']]), :value => "", :class => "select")%><br />
-<%= f.text_field :corp, :id => "pavertech_name", :type => "text", :placeholder => "Empresa", :value => "Empresa", :class => "input pavertech_name" %><br />
-<%= f.text_area :message, :placeholder => "Mensagem", :value =>"", :class => "input textarea"  %><br />
-<%= image_submit_tag("btn_enviar.png", :id => "user_submit", :name => "commit", :class => "btn float-right")%>
-<% end %>
-            </div>
-            <div class="contato_right">
-                
-            </div>                         
-        </div>
-        </div>
-        </div>
+	<div class="intro_content">
+		<div class="sec_text_field_1">
+			<span class="text_1_second_1">Entre em contato</span><br><br>
+			<p class="text_2_second_1">Você quer nos enviar dúvidas e sugestões? Preencha o formulário. Estamos aguardando seu contato. </p>
+		</div>          
+		<div class="contato_box">
+			<div class="contato_left">
+				<%= form_for @contact do |f| %>
+					<%#= f.error_messages %>
+					<%= f.text_field :name, :type => "text", :placeholder => "Nome", :class => "input pavertech_name" %><br />
+					<%= f.text_field :email, :type => "text", :placeholder => "E-mail", :class => "input" %><br />
+					<%= f.text_field :phone, :id => "telefone", :type => "text", :placeholder => "(DDD) Telefone", :class => "input" %><br />
+					<%= f.text_field :city, :type => "text", :placeholder => "Cidade", :class => "input pavertech_name", :style => "width:210px; margin-right:12px;" %>
+					<%= f.select(:state, options_for_select([['Estado',''],['AC'],['AL'],['AP'],['AM'],['BA'],['CE'],['DF'],['ES'],['GO'],['MA'],['MT'],['MS'],['MG'],['PA'],['PB'],['PR'],['PE'],['PI'],['RJ'],['RN'],['RS'],['RO'],['RR'],['SC'],['SP'],['SE'],['TO']], :selected => @contact.state),  :class => "select")%><br />
+					<%= f.text_field :corp, :id => "pavertech_name", :type => "text", :placeholder => "Empresa",  :class => "input pavertech_name" %><br />
+					<%= f.text_area :message, :placeholder => "Mensagem", :class => "input textarea"  %><br />
+					<%= image_submit_tag("btn_enviar.png", :id => "user_submit", :name => "commit", :class => "btn float-right")%>
+				<% end %>
+			</div>
+			<div class="contato_right">
+
+			</div>                         
+		</div>
+	</div>
+</div>
 
 

@@ -161,7 +161,10 @@ jQuery.validator.addMethod("menorQue", function(value, element, param) {
    return value >= jQuery(param).val() ? false : true;
 }, "Este valor precisa ser menor"); // Mensagem padrão 
 jQuery.validator.addMethod("equalTo", function(value, element, param){
-return value == jQuery(param).attr('value') ? true : false;
+	return value == jQuery(param).attr('value') ? true : false;
 });
 
+jQuery.validator.addMethod("placeholder", function(value, element) {
+  return value!=$(element).attr("placeholder");
+}, jQuery.validator.messages.required);
 
